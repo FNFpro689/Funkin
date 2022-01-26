@@ -47,7 +47,7 @@ class TitleState extends MusicBeatState
 	override public function create():Void
 	{
 		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
+	
 		#end
 
 		PlayerSettings.init();
@@ -195,7 +195,7 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
+		// ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
@@ -290,7 +290,7 @@ class TitleState extends MusicBeatState
 			{
 				// Check if version is outdated
 
-				var version:String = "v" + Application.current.meta.get('version');
+				var version:String = "Friday Night Funkin' v" + Application.current.meta.get('version');
 
 				if (version.trim() != NGio.GAME_VER_NUMS.trim() && !OutdatedSubState.leftState)
 				{
@@ -376,9 +376,13 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
 			case 5:
-				createCoolText(['In association', 'with']);
+				#if GRENADE_WATERMARKS
+				createCoolText(['Grenade Engine', 'by']);
+				#else
+				createCoolText(["In association", "with"]);
+				#end
 			case 7:
-				addMoreText('newgrounds');
+				addMoreText('FNFpro689');
 				ngSpr.visible = true;
 			// credTextShit.text += '\nNewgrounds';
 			case 8:
