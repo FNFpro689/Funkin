@@ -49,6 +49,11 @@ class TitleState extends MusicBeatState
 		#if polymod
 	
 		#end
+			
+		#if CHECK_FOR_UPDATES
+		if(!closedState) {
+		trace('checking for update');
+		var http = new haxe.Http("https://raw.githubusercontent.com/FNFpro689/Funkin/master/version.txt");
 
 		PlayerSettings.init();
 
