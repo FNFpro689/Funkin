@@ -4,10 +4,11 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
+import custom_character;
 
 using StringTools;
 
-class Character extends FlxSprite
+class Character extends FlxSprite // added custom characters
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
@@ -131,12 +132,14 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24);
 				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24);
 				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24);
+				trace("got da sprites");
 
 				addOffset('idle');
 				addOffset("singUP", -6, 50);
 				addOffset("singRIGHT", 0, 27);
 				addOffset("singLEFT", -10, 10);
 				addOffset("singDOWN", 0, -30);
+				trace("god da offsets");
 
 				playAnim('idle');
 			case 'spooky':
